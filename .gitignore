@@ -1,0 +1,29 @@
+# Módulos de Node.js (se incluyen en package.json)
+node_modules/
+
+# Directorio de dependencias de Yarn
+yarn-error.log
+.yarn-integrity
+
+# Archivos de registro
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos generados en el proceso de construcción
+dist/
+build/
+
+# Archivos de configuración local (configuraciones de entorno, por ejemplo)
+.env
+
+# Archivos temporales
+*.swp
+*~
+
+# Directorio de subida de archivos (si es aplicable)
+uploads/
+
+# Dependiendo del entorno de desarrollo, puedes incluir más exclusiones aquí
