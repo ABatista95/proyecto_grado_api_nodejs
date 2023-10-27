@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { connectMysql } from "../database/dbmysql";
+import { responseApi } from "../utils/response";
 
 
 export const createPaciente = async (req: Request, res: Response) => {
@@ -7,19 +8,10 @@ export const createPaciente = async (req: Request, res: Response) => {
   if (connection) {
     try {
       const resp = await connection.query('SELECT * FROM tb_paciente');
-      res.status(200).json({
-        status: true,
-        message: 'Creación de paciente exitosa',
-        data: resp[0]
-      });
+      res.status(200).json(responseApi('Creación de paciente exitosa', resp[0]));
 
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: 'Creación de paciente exitosa',
-        data: null,
-        error: error
-      });
+      res.status(500).json(responseApi('Error en gestión de solicitud', null, false, error));
       console.error('Error server:: ', error);
     }
     await connection.end();

@@ -1,10 +1,9 @@
 import { Router } from "express";
-import router from "./pacientes.route";
 
-const roouter = Router();
+import { addSede } from "../controllers/sedes.controller";
 
-router.get("/", (req: any, res: any) => {
-  res.send("Obteniendo todas las sedes");
-});
+const router = Router();
+
+router.post("/create", addSede);
 
 export default router;
